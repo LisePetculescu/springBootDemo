@@ -5,6 +5,8 @@
 @GetMapping
 *@Autowired
 *@PathVariable
+*@RequestBody
+*@PostMapping
 
 @Id: Dette er en JPA (Java Persistence API) annotation, der markerer et
 felt som den primære nøgle i en database tabel. Når du arbejder med
