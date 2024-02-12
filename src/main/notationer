@@ -1,7 +1,10 @@
 @Id
-@Entity = det kan noget
+@Entity
 @RestController
 @GeneratedValue
+@GetMapping
+*@Autowired
+*@PathVariable
 
 @Id: Dette er en JPA (Java Persistence API) annotation, der markerer et
 felt som den primære nøgle i en database tabel. Når du arbejder med
@@ -28,3 +31,9 @@ en primær nøgle, kan du bede ORM-frameworket om at generere unikke
 nøgler automatisk for hver ny række i databasen. Der er forskellige
 strategier for generering, såsom AUTO, IDENTITY, SEQUENCE, osv., som
 kan specificeres som parametre til denne annotation.
+
+@GetMapping er en anden annotation fra Spring Frameworket, der bruges
+til at definere en metode, der skal håndtere HTTP GET-anmodninger på
+en bestemt URL-mapping. Den bruges typisk i kombination med
+@RestController eller @Controller for at definere, hvilke metoder der
+skal udløses, når en GET-anmodning sendes til en bestemt URL.
