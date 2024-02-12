@@ -52,5 +52,38 @@ public class PersonController {
         return personRepository.save(person);
     }
 
+    @PutMapping("/persons/{id}")
+    public ResponseEntity<Person> updatePerson(@PathVariable int id, @RequestBody Person person) {
+        Optional<Person> updatePerson = personRepository.findById(id);
+
+        if (updatePerson.isPresent()) {
+            Person originalPerson = updatePerson.get();
+
+            originalPerson.setDateOfBirth(person.getDateOfBirth());
+            originalPerson.setLastName(person.getLastName());
+            originalPerson.setFirstName(person.getFirstName());
+
+            Person updatedPerson = personRepository.save(originalPerson);
+            return ResponseEntity.ok().body(updatedPerson);
+
+
+        } else {
+            return  ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/persons/{id}")
+    public ResponseEntity<Person> deletePerson(@PathVariable int id) {
+        Optional<Person> deletePerson = personRepository.findById(id);
+
+        if (deletePerson.isPresent()) {
+            personRepository.deleteById(id);
+            return ResponseEntity.ok().body(deletePerson.get());
+        } else {
+            return  ResponseEntity.notFound().build();
+        }
+
+    }
+
 
 }
