@@ -1,0 +1,41 @@
+@Id
+@Entity
+@RestController
+@GeneratedValue
+@GetMapping
+*@Autowired
+*@PathVariable
+*@RequestBody
+*@PostMapping
+
+@Id: Dette er en JPA (Java Persistence API) annotation, der markerer et
+felt som den primære nøgle i en database tabel. Når du arbejder med
+objekt-relationel mapping (ORM) i Spring Boot, bruges denne annotation
+typisk til at identificere entitetsklassens primære nøgle.
+
+@Entity: Denne annotation bruges også i JPA. Den markerer en Java-klasse
+som en JPA-entitet, hvilket betyder, at klassen repræsenterer en tabel i
+en database. Når du markerer en klasse med @Entity, fortæller du
+ORM-frameworket (som Hibernate, der ofte bruges med Spring Boot), at
+denne klasse skal være en del af din database-model.
+
+@RestController: Dette er en annotation fra Spring Frameworket, der
+ angiver, at klassen er en controller, der håndterer HTTP-anmodninger
+ og -svar. I modsætning til @Controller, der normalt bruges i MVC
+ (Model-View-Controller) arkitekturen, returnerer klasser, der er
+ markeret med @RestController, data direkte i stedet for at renderere
+ HTML-skabeloner. Typisk bruges det til at opbygge RESTful webtjenester.
+
+@GeneratedValue: Denne annotation bruges også i JPA. Den specificerer,
+hvordan primærnøgler skal genereres for de entiteter, der er markeret
+med @Entity. Ved at angive @GeneratedValue på en attribut vedrørende
+en primær nøgle, kan du bede ORM-frameworket om at generere unikke
+nøgler automatisk for hver ny række i databasen. Der er forskellige
+strategier for generering, såsom AUTO, IDENTITY, SEQUENCE, osv., som
+kan specificeres som parametre til denne annotation.
+
+@GetMapping er en anden annotation fra Spring Frameworket, der bruges
+til at definere en metode, der skal håndtere HTTP GET-anmodninger på
+en bestemt URL-mapping. Den bruges typisk i kombination med
+@RestController eller @Controller for at definere, hvilke metoder der
+skal udløses, når en GET-anmodning sendes til en bestemt URL.
